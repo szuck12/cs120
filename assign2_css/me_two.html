@@ -1,9 +1,334 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>CS120, Assignment 2: CSS</title>
+        <!-- Metadata -->
+        <meta charset="utf-8">
+        <meta name="description" 
+              content="Learn more about me! This page discusses my favorite 
+                       food, favorite books, favorite animal names, and more!" />
+        <meta name="keywords" 
+              content="about me, introduction, favorites, Harry Potter, 
+                       grilled chicken, O'Hara's, Michael Lewis" />
+        <meta name="viewport" 
+              content="width=device-width, initial-scale=1.0" />
+
+	    <title>CS120, Assignment 2: CSS</title>
+
+        <!-- Links for Google Fonts and Social Media Icons -->
+        <link rel="stylesheet" 
+              href="https://fonts.googleapis.com/css?family=Lato|Inter|Noto+Sans" />
+        <link rel="stylesheet" 
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+        <!-- CSS Styling -->
+        <style type="text/css">
+            /* Body and Headers */
+            body {
+                font-family: "Lato", "Inter", "Noto Sans", sans-serif;
+            }
+            h1,h2 {
+                margin-bottom: 30px;
+            }
+            h1 {
+                color:forestgreen;
+                font-size: 36px;
+            }
+            h2 {
+                color:navy;
+                font-size: 24px;
+            }
+            h2.form {
+                text-align: center;
+            }
+
+            /* Lists */
+            ul {
+                border: 5px solid maroon;
+                padding: 30px;
+                margin: 30px auto;
+                width: 25%;
+            }
+
+            /* Images and Image Text */
+            .image-container {
+                display: flex;
+                align-items: center;
+            }
+            .image {
+                height: 150px;
+                width: 163px;
+                background-image: url('images/ChickenAndRice.jpg');
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+                flex-shrink: 0;
+                margin-left: 20px;
+            }
+            .image-text {
+                margin-left: 20px;
+            }
+
+            /* Tables */
+            table {
+                margin-bottom: 30px;
+            }
+            td,th {
+                text-align: center;
+                vertical-align: middle;
+            }
+            table img {
+                display: block;
+                margin: 0px 0px;
+            }
+            table tr:nth-child(even) {
+                background-color:lightpink;
+            }
+            table tr:nth-child(odd) {
+                background-color:white;
+            }
+
+            /* Information Form */
+            label {
+                text-align: right;
+                width: 90px;
+                flex-shrink: 0;
+            }
+            input[type="text"],select {
+                text-align: left;
+                display: block;
+                width: 80%;
+                margin: 0 10px;
+            }
+            .form-box {
+                width: 500px;
+                border: 3px solid black;
+                margin-top: 30px;
+            }
+            .form-line {
+                margin: 10px 20px 20px 20px;
+                display: flex;
+            }
+            .form-line.submit {
+                justify-content: center;
+            }
+
+            /* Fixed Icons */
+            .icons {
+                position: fixed;
+                top: 100px;
+                right: 35px;
+                font-size: 30px;
+            }
+            .icons-element {
+                display: inline-block;
+                margin-right: 10px;
+            }
+            .icons-element:last-child {
+                margin-right: 0px;
+            }
+
+        </style>
     </head>
     <body>
-        <h1>Coming Soon</h1>
+        <!-- Fixed Icons + Header -->
+        <div class="icons">
+            <span class="icons-element">
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            </span> <!-- end icons-element -->
+            <span class="icons-element">
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            </span> <!-- end icons-element -->
+        </div> <!-- end icons -->
+	    <h1>Sam Zuckerman</h1>
+        <hr />
+
+        <!-- Trip Summary -->
+        <h2>Short Summary of A Trip I Took</h3>
+        <p>
+            Two summers ago, I went on a roadtrip with a friend from Denver 
+            to San Francisco. First, we drove west across Colorado, climbing 
+            up through the Rocky Mountains. Next, we crossed over into Utah 
+            and visited many National Parks, including Arches National Park in 
+            Moab and Bryce Canyon National Park.
+        </p> 
+        <p>
+            Then, we crossed over into California through Death Valley, and our 
+            trusty car overheated from the suffocating summer heat! 
+            Fortunately, we were able to drive out of Death Valley at night, 
+            and travel up the coastal highway Route 1 until we reached 
+            San Francisco.
+        </p>
+        <hr />
+
+        <!-- Animal Names -->
+        <h2>My Favorite Animal Names</h3>
+        <ul> 
+            <li>A French Bulldog named Max</li>
+            <li>A Persian cat named Stacy</li>
+            <li>A Zebrafish named Marvin</li>
+        </ul>
+        <hr />
+
+        <!-- Favorite Restaurant -->
+        <h2>My Favorite Restaurant</h3>
+        <a href="https://www.oharas.us" 
+           target="_blank">O'Hara's, An Amazing Restaurant!</a>
+        <p>
+            O'Hara's is a fantastic restaurant located in Newton, 
+            Massachusetts. There are many reasons why O'Hara's is my favorite
+            restaurant, but first and most importantly, the food is amazing. 
+            My family always goes for their pretzel bites as an appetizer, 
+            which come salted and with a delicious beer-based cheese sauce. 
+        </p>
+        <p>
+            For the main course, some of my favorites are Rafael's Burger, 
+            their fried chicken sandwich, and the mac and cheese. The portions 
+            range from generous to massive, with their shepard's pie being
+            large enough for at least a day or two of leftovers. Also, the 
+            prices are incredibly reasonable and O'Hara's boasts a lively 
+            atmosphere. However, if you want to go on a weekend, make sure to 
+            go early, or else you'll be in for a long wait!
+        </p>
+        <p> 
+            All things considered, eating an early dinner at O'Hara's is 
+            definitely worth it, considering the quality of food and service 
+            that O'Hara's provides.
+        </p>
+        <hr />
+
+        <!-- Favorite Food -->
+        <h2>My Favorite Food</h3>
+        <div class="image-container">
+            <div class="image"> </div>
+            <div class="image-text">
+                <p> 
+                    My favorite food is grilled chicken with rice. To prepare 
+                    this dish, I first cut the chicken into thin slices, and 
+                    then cook the chicken until it is lightly charred on the 
+                    outside. As the chicken is  cooking, I add different 
+                    seasonings to the chicken to give it extra flavor, 
+                    including onion powder, black pepper and smoked paprika.
+                </p>
+                <p>
+                    Once the grilled chicken has been fully cooked, I pair it 
+                    with rice, which I prepare in advance or prepare at the 
+                    same time as the grilled chicken. Lastly, I sometimes add 
+                    either a garlic aoili or a siracha aoili to give the 
+                    chicken additional flavor.
+                </p>
+            </div> <!-- end image-text -->
+        </div> <!-- end image-container -->
+        </h2>
+        <br clear="all" />
+        <hr />
+
+        <!-- Favorite Books -->
+        <h2>My Four Favorite Books</h3>
+    
+        <table border = "1" cellpadding="4" cellspacing="0">
+            <tr>
+                <th>Name of Book</th>
+                <th>Image of Cover</th>
+                <th>Author</th>
+                <th>Short Summary</th>
+            </tr>
+            <tr>
+                <td>Steve Jobs</td>
+                <td><img src="images/SteveJobs.jpg" 
+                         alt="Steve Jobs Book Cover" height="75"></td>
+                <td>Walter Isaacson</td>
+                <td> 
+                    A detailed biography that covers the life story of
+                    successful tech entrepreneur Steve Jobs. The book begins 
+                    by discussing his upbringing and his pilgrimage to India
+                    as a young adult, and later discusses his successful
+                    career as an innovator and leader at Apple and Pixar. 
+                </td>
+            </tr>
+            <tr>
+                <td>Eragon</td>
+                <td><img src="images/Eragon.jpg" 
+                         alt="Eragon Book Cover" height="75"></td>
+                <td>Christopher Paolini</td>
+                <td> 
+                    The first book in the Inheritance fantasy series, this 
+                    book begins with a boy named Eragon who
+                    finds a dragon egg. He develops a close relationship with
+                    the dragon once it hatches and names the dragon Saphira.
+                    Over time, the bond between the two strengthens, and they
+                    go on many adventures during their travels across the
+                    land of Alagaesia.
+                </td>
+            </tr>
+            <tr>
+                <td>Moneyball: The Art of Winning an Unfair Game</td>
+                <td><img src="images/Moneyball.jpg" 
+                         alt="Moneyball Book Cover" height="75"></td>
+                <td>Michael Lewis</td>
+                <td> 
+                    Moneyball: The Art of Winning an Unfair Game is a book 
+                    about the extraordinary success of the Oakland Athletics
+                    in the late 1990's, led by general manager Billy Beane. 
+                    Beane and his sidekick Paul DePodesta use statistical
+                    analysis to more effectively evaluate baseball 
+                    players, allowing them to compete with the leagues best
+                    teams with only a fraction of the financial resources.   
+                </td>
+            </tr>
+            <tr>
+                <td>Harry Potter and the Goblet of Fire</td>
+                <td><img src="images/HarryPotter_Book4.jpg" 
+                         alt="Harry Potter and the Goblet of Fire Book Cover" 
+                         height="75"></td>
+                <td>J.K. Rowling</td>
+                <td> 
+                    The fourth book in the popular Harry Potter series, Harry 
+                    is entered into the dangerous Triwizard Tournament by an
+                    unknown source, and is forced to compete against much
+                    older and more experienced wizards. Over the course of 
+                    the book, he must surpass many challenging obstacles and 
+                    face Lord Voldemort once again as he returns to power.  
+                </td>
+            </tr>
+        </table>
+        <hr />
+
+        <!-- Information Form -->
+        <div class="form-box">
+            <form action="#" method="get">
+                <h2 class="form">Information Form</h2>
+                <div class="form-line">
+                    <label for="first-name">First Name:</label>
+                    <input type="text" id="first_name" name="first_name">
+                </div> <!-- end form-line -->
+                <div class="form-line">
+                    <label for="last-name">Last Name:</label>
+                    <input type="text" id="last_name" name="last_name">
+                </div> <!-- end form-line -->
+                <div class="form-line">
+                    <label for="city">City:</label>
+                    <input type="text" id="city" name="city">
+                </div> <!-- end form-line -->
+                <div class="form-line">
+                    <label for="state">State:</label>
+                    <select id="state" name="state">
+                        <option value="None of the Following">None of the Following</option>
+                        <option value="California">California</option>
+                        <option value="Florida">Florida</option>
+                        <option value="Illinois">Illinois</option>
+                        <option value="Massachusetts">Massachusetts</option>
+                        <option value="Michigan">Michigan</option>
+                        <option value="New York">New York</option>
+                        <option value="North Carolina">North Carolina</option>
+                        <option value="Pennsylvania">Pennsylvania</option>
+                        <option value="Tennessee">Tennessee</option>
+                        <option value="Texas">Texas</option>
+                    </select>
+                </div> <!-- end form-line -->
+                <div class="form-line submit">
+                    <input type="submit" value="Submit!">
+                </div> <!-- end form-line submit -->
+            </form>
+        </div> <!-- end form-box -->
     </body>
 </html>
