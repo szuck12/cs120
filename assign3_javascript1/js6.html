@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Metadata -->
+        <meta charset="utf-8">
+        <meta name="viewport" 
+              content="width=device-width, initial-scale=1.0" />
+        
+        <!-- Title and Link to Stylesheet -->
+        <title>CS120, Javascript Problem 6:</title>
+        <link rel="stylesheet" href="style.css" />
+
+    </head>
+    <body>
+        <!-- Page Heading -->
+        <div class="top">
+            <h1>CS120, Javascript Problem 6:</h1>
+        </div> <!-- end of top -->
+
+        <div id ="answer"></div>
+
+        <!-- Javascript -->
+        <script>
+            // function count, takes an array of numbers and a value as input
+            // and returns the number of items in the array that are less than
+            // the inputted value
+            function count(array_nums, value) {
+                let num_less = 0;
+
+                for (let i = 0; i < array_nums.length; i++) {
+                    if (value > array_nums[i]) {
+                        num_less += 1;
+                    }
+                }
+
+                return num_less;
+            }
+            // function testCount calls function count, and displays the return
+            // value of count on the page
+            function testCount() {
+                array_nums = [4, -5, 50, 72, 14, 39, 67];
+                value = Number(15);
+
+                result = count(array_nums, value);
+
+                sentence_beg = "There are ";
+                sentence_end = " numbers in the array [4, -5, 50, 72, 14, 39, 67] " +
+                               "that are less than 15.";
+
+                document.getElementById("answer").innerHTML = sentence_beg + result + sentence_end;
+
+            }
+
+            testCount();
+
+        </script>
+    </body>
+</html>

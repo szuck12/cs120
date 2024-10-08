@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Metadata -->
+        <meta charset="utf-8">
+        <meta name="viewport" 
+              content="width=device-width, initial-scale=1.0" />
+        
+        <!-- Title and Link to Stylesheet -->
+        <title>CS120, Javascript Problem 1:</title>
+        <link rel="stylesheet" href="style.css" />
+
+    </head>
+    <body>
+        <!-- Page Heading -->
+        <div class="top">
+            <h1>CS120, Javascript Problem 1:</h1>
+        </div> <!-- end of top -->
+
+        <!-- Javascript -->
+        <script>
+            // Asks for and display first name and last name in a pop-up
+            let first_name = prompt("What is your first name?");
+            let last_name = prompt("What is your last name?");
+            alert("Your name is " + first_name + " " + last_name + ".");
+
+
+            // Asks for and prints number of children on page using
+            // correct grammar
+            let num_children = Number(prompt("How many children do you have?"));
+            let sentence;
+
+            if (num_children == 0) {
+                sentence = "You have no children.";
+            } else if (num_children == 1) {
+                sentence = "You have 1 child.";
+            } else if (num_children > 1) {
+                sentence = "You have " + num_children + " children.";
+            } else {
+                sentence = num_children + " is not a valid number of children, " + 
+                           "so we do not know how many children you have.";
+            }
+
+            document.write(sentence);
+
+        </script>
+    </body>
+</html>

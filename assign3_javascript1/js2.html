@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Metadata -->
+        <meta charset="utf-8">
+        <meta name="viewport" 
+              content="width=device-width, initial-scale=1.0" />
+        
+        <!-- Title and Link to Stylesheet -->
+        <title>CS120, Javascript Problem 2:</title>
+        <link rel="stylesheet" href="style.css" />
+
+    </head>
+    <body>
+        <!-- Page Heading -->
+        <div class="top">
+            <h1>CS120, Javascript Problem 2:</h1>
+        </div> <!-- end of top -->
+
+        <!-- Javascript -->
+        <script>
+            // Conversion from Fahrenheit to Celsius
+            let temp_f = prompt("What is the temperature in Fahrenheit?");
+            let temp_c = (temp_f - 32) * (5 / 9)
+
+            if (temp_c != 1) {
+                alert("The temperature is " + temp_c + " degrees Celsius.");
+            } else {
+                alert("The temperature is " + temp_c + " degree Celsius.");
+            }
+            
+            // Conversion from Celsius to Fahrenheit
+            temp_c = prompt("What is the temperature in Celsius?");
+            temp_f = (temp_c * (9 / 5)) + 32;
+
+            if (temp_f != 1) {
+                alert("The temperature is " + temp_f + " degrees Fahrenheit.");
+            } else {
+                alert("The temperature is " + temp_c + " degree Fahrenheit.");
+            }
+
+        </script>
+    </body>
+</html>

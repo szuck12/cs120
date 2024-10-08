@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Metadata -->
+        <meta charset="utf-8">
+        <meta name="viewport" 
+              content="width=device-width, initial-scale=1.0" />
+        
+        <!-- Title and Link to Stylesheet -->
+        <title>CS120, Javascript Problem 3:</title>
+        <link rel="stylesheet" href="style.css" />
+
+    </head>
+    <body>
+        <!-- Page Heading -->
+        <div class="top">
+            <h1>CS120, Javascript Problem 3:</h1>
+        </div> <!-- end of top -->
+
+        <!-- Javascript -->
+        <script>
+            // Ask user for two numbers
+            let num_1 = Number(prompt("Can you give me a number?"));
+            let num_2 = Number(prompt("Can you give me a second number?"));
+
+            let smaller_num, larger_num
+
+            // Compare numbers, determine which is smaller and which is larger
+            if (num_1 <= num_2) {
+                smaller_num = num_1;
+                larger_num = num_2;
+            } else {
+                smaller_num = num_2;
+                larger_num = num_1;
+            }
+
+            console.log("Here are the numbers you gave in sorted order, from " 
+                        + "smallest to largest: " + smaller_num + " " + larger_num);
+
+        </script>
+    </body>
+</html>

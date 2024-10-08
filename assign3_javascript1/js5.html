@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Metadata -->
+        <meta charset="utf-8">
+        <meta name="viewport" 
+              content="width=device-width, initial-scale=1.0" />
+            
+        <!-- Title and Link to Stylesheet -->
+        <title>CS120, Javascript Problem 5:</title>
+        <link rel="stylesheet" href="style.css" />
+
+    </head>
+    <body>
+        <!-- Page Heading -->
+        <div class="top">
+            <h1>CS120, Javascript Problem 5:</h1>
+        </div> <!-- end of top -->
+
+        <!-- Javascript -->
+        <script>
+            // timesTable function, takes a number as input and displays 
+            // a multiplication table involving that number
+            function timesTable(number) {
+                number = Number(number);
+
+                let result = "";
+
+                for (let i = 1; i <= 12; i++) {
+                    result = number +  " x " + i + " = " + (number * i) + "<br />";
+                    document.write(result);
+                }
+            }
+            // call timesTable with inputs 3, 7 and 11, with line breaks
+            // after the first and second function call
+            timesTable(3);
+            document.write("<hr />");
+            timesTable(7);
+            document.write("<hr />");
+            timesTable(11);
+
+        </script>
+    </body>
+</html>
