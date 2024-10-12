@@ -1,0 +1,302 @@
+/* Body */
+html, body {
+    margin: 0px;
+    padding: 0px;
+}
+
+/* Bar Styling (Applies to Nav and Footer) */
+.bar {
+    list-style-type: none;
+    display: flex;
+    position: fixed;
+    width: 100%;
+    box-sizing: border-box;
+    align-items: center; 
+    justify-content: space-between;
+    z-index: 1;
+}
+.bar li {
+    display: inline;
+    text-decoration: none;
+}
+.bar a {
+    color: goldenrod;
+}
+a {
+    text-decoration: none;
+}
+a:visited {
+    color: goldenrod;
+}
+
+/* Nav Styling */
+.nav {
+    height: 55px;
+    top: 0px;
+    background-color: white;
+}
+.nav li {
+    margin: 0px 18px;
+    font-size: 16px;
+}
+.band-name {
+    font-family: "Cinzel", "Playfair Display", "Merriweather", "serif"; 
+    color: #616569;
+    margin-left: 20px;
+    font-size: 30px;
+}
+.times {
+    font-size: 20px;
+}
+.period {
+    font-size: 75px;
+    margin-right: 10px;
+}
+
+/* Footer Styling */
+.footer {
+    height: 40px;
+    bottom: 0px;
+    background-color: black;
+}
+.footer li {
+    margin-left: 15px;
+}
+.footer li:last-child {
+    margin-right: 40px;
+}
+.copyright {
+    color: white;
+    margin-left: 20px;
+    font-size: 16px;
+}
+
+/* Full-Width Images and Corresponding Text */
+.full-img {
+    width: 100%;
+    height: 400px;
+    background-size: cover;
+    color: white;
+    position: relative;
+    margin-top: 55px;
+}
+.text-on-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 46px;
+    white-space: nowrap;
+    font-family: "Nunito"; 
+    list-style-type: none;
+    flex-direction: horizontal;
+    display: flex;
+}
+
+/* Content Sections */
+.white-section, .gray-section, .gold-section {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.gray-section {
+    background-color: #999DA0;
+}
+.white-section {
+    background-color: white;
+}
+.gold-section {
+    background-color: goldenrod;
+}
+.section-header {
+    text-align: center;
+}
+.section-content {
+    text-align: center;
+    width: 75%;
+    margin: 10px auto 20px auto;
+    max-width: 1000px;
+    line-height: 1.5;
+}
+
+/* Call to Action Buttons */
+.call-to-action {
+    display: block;
+    margin: 0px auto 20px auto;
+    font-size: 16px;
+    border-radius: 10px;
+    padding: 10px 20px;
+    background-color: goldenrod;
+    color: black;
+    border: none;
+}
+
+/* Two Column Lists */
+.two-lists {
+    display: flex;
+}
+.list-column {
+    width: 45%;
+    margin: 2% 5%;
+    padding: 0;
+    text-align: center;
+    list-style-type: none;
+    line-height: 1.7
+}
+.vertical-line {
+    width: 2px;
+    background-color: black;
+    align-self: stretch;
+}
+
+/* Four Portrait Images */ 
+.four-images {
+    display: flex;
+    width: 100%;
+    height: 450px;
+    padding-bottom: 75px;
+    box-sizing: border-box;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.four-images img {
+    height: 100%;
+    object-fit: cover;
+    width: 25%;
+    margin: 0px;
+
+}
+
+/* 4 Logo Images */
+.four-logos {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: stretch;
+    padding-bottom: 25px;
+    flex-wrap: wrap;
+}
+.four-logos img {
+    height: 150px;
+    object-fit: cover;
+    margin: 25px;
+    max-width: 300px;
+    flex: 1 1 50%;
+}
+
+/* Table Styling */
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    background-color: #999DA0;;
+
+}
+th, td {
+    border: 1px solid black;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Browser-Width Specific Items */
+.for-small {
+    display: none;
+}
+
+/* Styling for Medium Browser Widths */
+@media (max-width: 768px) {
+    /* Nav Bar Styling */
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .nav {
+        height: 100px;
+    }
+
+    /* Image-Related Styling */
+    .text-on-img {
+        font-size: 32px;
+    }
+    .four-images img {
+        width: 50%;
+    }
+    .period {
+        font-size: 55px;
+    }
+
+    /* List Styling */
+    .two-lists {
+        flex-direction: column;
+        align-items: center;
+    }
+    .list-column {
+        margin: 2% 0px;
+        width: 400px;
+    }
+
+    /* Table Styling */
+    th, td {
+        font-size: 12px;
+    }
+
+    /* Browser-Width Specific Styling */
+    .hide-copy {
+        display: none;
+    }
+    .for-large {
+        display: none;
+    }
+    .for-small {
+        text-align: center;
+        display: inline;
+        width: 100%;
+        background-color: goldenrod;
+        padding: 10px 0px;
+    }
+}
+
+/* Styling For Small Browser-Widths */
+@media (max-width: 480px) {
+    /* Nav Bar Styling */
+    .band-name {
+        width: 140px;
+        font-size: 20px;
+    }
+    .times {
+        font-size: 15px;
+    }
+
+    /* Image-Related Styling */
+    .text-on-img {
+        font-size: 30px;
+        flex-direction: column;
+    }
+    .period {
+        font-size: 40px;
+    }
+    .full-img {
+        height: 300px;
+    }
+
+    /* List Styling */
+    .list-column {
+        font-size: 12px;
+    }
+
+    /* Table Styling */
+    th, td {
+        font-size: 10px;
+    }
+
+    /* Footer-Related Styling */
+    .copyright {
+        font-size: 12px;
+        margin-left: 12px;
+    }
+    .footer li {
+        margin-left: 7px;
+    }
+    .footer li:last-child {
+        margin-right: 12px;
+    }
+}

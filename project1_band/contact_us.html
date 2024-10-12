@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Metadata -->
+        <meta charset="utf-8">
+        <meta name="viewport" 
+              content="width=device-width, initial-scale=1.0" />
+
+        <!-- Title and Links for Stylesheet, Fonts and Icons -->
+        <title>CS120, Project 1: Contact Us</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cinzel|Playfair+Display|Merriweather|Nunito" />
+        <link rel="stylesheet" 
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+        
+        <!-- Internal CSS -->
+        <style>
+            /* Banner Image */
+            .full-img {
+                background-image: url("images/Banner_Contact.jpg");
+            }
+
+            /* Section Styling */
+            .section-content {
+                line-height: 1.7;
+            }
+
+            /* Form Styling */
+            .form-box {
+                width: 75%;
+                border: 3px solid black;
+                margin: 30px auto 30px auto;
+                justify-content: center;
+                padding: 25px;
+                background-color: white;
+            }
+            .form-line {
+                margin: 10px 20px 20px 20px;
+                display: flex;
+                justify-content: space-between;
+            }
+            .form-line.submit {
+                justify-content: center;
+            }
+            label {
+                text-align: right;
+                width: 125px;
+                flex-shrink: 0;
+            }
+            input[type="text"]{
+                text-align: left;
+                display: block;
+                width: 80%;
+                margin: 0 10px;
+                max-width: 400px;
+            }
+            input[type="submit"] {
+                display: block;
+                margin: 0px auto 20px auto;
+                font-size: 16px;
+                border-radius: 10px;
+                padding: 10px 20px;
+                background-color: goldenrod;
+                color: black;
+                border: none;
+            }
+
+            /* Bottom of Page Spacing */
+            .extra-space {
+                height: 45px;
+            }
+
+            /* Form Styling at Medium Browser Widths */
+            @media (max-width: 768px) {
+                .form-line {
+                    flex-wrap: wrap;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                }
+                label {
+                    margin-right: 10px;
+                }
+                input[type="text"] {
+                    max-width: none;
+                    width: 60%;
+                    margin: 0px;
+                }
+            }
+
+            /* Form Styling at Medium Browser Widths */
+            @media (max-width: 480px) {
+                label {
+                    text-align: left;
+                }
+                .text-on-img {
+                    font-size: 25px;
+                }
+            }
+
+        </style>
+    </head>
+    <body>
+        <!-- Header Containing Navigation Bar -->
+        <header>
+            <nav class="bar nav">
+                <div class="band-name">Twelve <span class="times">Times</span> Modern</div>
+                <ul class="nav-links">
+                    <li><a href="home_page.html" target="_blank">Home Page</a></li>
+                    <li><a href="about.html" target="_blank">About</a></li>
+                    <li><a href="events.html" target="_blank">Events</a></li>
+                    <li><a href="contact_us.html" target="_blank">Contact Us</a></li>
+                </ul> <!-- end of nav-links -->
+            </nav> <!-- end of nav-bar -->
+        </header>
+
+        <!-- Wide Image of Band Playing Together -->
+        <div class="full-img">
+            <div class="text-on-img">
+                We Want To Be There 
+            </div> <!-- end of text-on-img -->
+        </div> <!-- end of full-img -->
+
+        <div class="gold-section">
+            <h2 class="section-header">Why Twelve Times Modern</h2>
+        </div> <!-- end of gold-section -->
+
+        <div class="white-section">
+            <h3 class="section-header">1. The Music</h3>
+            <p class="section-content">Our artists come from a variety of music backgrounds, 
+               meaning that they can play pretty much anything ... you
+               just have to ask. Also, as seasoned professionals with
+               over a decade of experience, our artists know what 
+               good music is ... and how to play it flawlessly.
+            </p> <!-- end of section-content -->
+        </div> <!-- end of section-header -->
+        <div class="gray-section">
+            <h3 class="section-header">2. The Energy</h3>
+            <p class="section-content">The music won't just be amazing: every single guest will
+                be on their feet dancing. We guarentee it. Our goal as
+                a live entertainment group is to make sure that everyone
+                is having a fantastic time and enjoying your event!
+            </p> <!-- end of section-content -->
+        </div> <!-- end of section-header -->
+        <div class="white-section">
+            <h3 class="section-header">3. The Process</h3>
+            <p class="section-content">Fill out a form online requesting a booking, and we will
+                get back to you in a couple of hours. It's really that
+                simple. We realize that your time is incredibly valuable,
+                so we designed our booking and planning process to be
+                as seamless as possible.
+            </p> <!-- end of section-content -->
+        </div> <!-- end of section-header -->
+
+         <!-- Booking Request Form -->
+         <div class="gray-section">
+            <div class="form-box">
+                <form action="#" method="get">
+                    <h2 style="text-align: center;">Booking Request</h2>
+
+                    <h3>Contact Info</h3>
+
+                    <div class="form-line">
+                        <label for="first-name">First Name:</label>
+                        <input type="text" id="first_name" name="first_name">
+                        <label for="first-name">Last Name:</label>
+                        <input type="text" id="last_name" name="last_name">
+                    </div> <!-- end of form-line -->
+                    <div class="form-line">
+                        <label for="email">Email Address:</label>
+                        <input type="text" id="email" name="email">
+                        <label for="phone_number">Phone Number:</label>
+                        <input type="text" id="phone_number" name="phone_number">
+                    </div> <!-- end of form-line -->
+                    <h3>Event Details</h3>
+                    <div class="form-line">
+                        <label for="date">Date:</label>
+                        <input type="text" id="date" name="date">
+                        <label for="time">Time:</label>
+                        <input type="text" id="time" name="time">
+                    </div> <!-- end of form-line -->
+                    <div class="form-line">
+                        <label for="venue">Venue:</label>
+                        <input type="text" id="venue" name="venue">
+                        <label for="city">City:</label>
+                        <input type="text" id="city" name="city">
+                    </div> <!-- end of form-line -->
+                    <h3>Additional Notes</h3>
+                    <div class="form-line">
+                        <input style="max-width: none; width: 100%;" type="text" id="city" name="city" 
+                               value= "Anything you would like to add...">
+                    </div> <!-- end of form-line -->
+                    <div class="form-line submit">
+                        <input type="submit" value="Submit!">
+                    </div> <!-- end of form-line submit -->
+
+                    <p style="text-align: center;"> 
+                        * We will get back to you within 24 hours with a quote to
+                        host the event at the date, time and venue given above.
+                    </p> <!-- end of inline-styled paragraph-->
+                </form> <!-- end of form -->
+            </div> <!-- end of form-box -->
+
+            <div class="extra-space"></div>
+        </div> <!-- end of gray-section -->    
+
+        <!-- Footer At Page Bottom -->
+        <footer class="bar footer">
+            <div class="copyright"><span class="hide-copy">Copyright </span>&copy; 2024 Twelve Times Modern.<span class="hide-copy"> All rights reserved.</span></div>
+            <ul>
+                <li><a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="https://spotify.com" target="_blank"><i class="fab fa-spotify"></i></a></li>
+            </ul>
+        </footer> <!-- end of bar footer -->
+    </body>
+</html>

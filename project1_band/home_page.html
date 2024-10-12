@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Metadata -->
+        <meta charset="utf-8">
+        <meta name="viewport" 
+              content="width=device-width, initial-scale=1.0" />
+
+        <!-- Title and Links for Stylesheet, Fonts and Icons -->
+        <title>CS120, Project 1: Home Page</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" 
+              href="https://fonts.googleapis.com/css?family=Cinzel|Playfair+Display|Merriweather|Nunito" />
+        <link rel="stylesheet" 
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+        
+        <!-- Internal CSS -->
+        <style>
+            /* Banner Image */
+            .full-img {
+                background-image: url("images/Banner_Homepage.jpg");
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Header Containing Navigation Bar -->
+        <header>
+            <nav class="bar nav">
+                <div class="band-name">Twelve <span class="times">Times</span> Modern</div>
+                <ul class="nav-links">
+                    <li><a href="home_page.html" target="_blank">Home Page</a></li>
+                    <li><a href="about.html" target="_blank">About</a></li>
+                    <li><a href="events.html" target="_blank">Events</a></li>
+                    <li><a href="contact_us.html" target="_blank">Contact Us</a></li>
+                </ul> <!-- end of nav-links -->
+            </nav> <!-- end of nav-bar -->
+        </header>
+
+        <!-- Wide Image of Band Playing Together -->
+        <div class="full-img">
+            <ul class="text-on-img">
+                <li>Versatile<span class="period">.</span></li>
+                <li>Authentic<span class="period">.</span></li>
+                <li>Brilliant<span class="period">.</span></li>
+            </ul> <!-- end of text-on-img -->
+        </div> <!-- end of full-img home -->
+
+        <!-- "Who We Are" Section with Call to Action -->
+        <div class="gray-section">
+            <h2 class="section-header">Who We Are</h2>
+
+            <p class="section-content">
+                Twelve Times Modern is a coalition of talented, passionate musicians,
+                who will bring an energizing, dynamic atmosphere to any event. Inspired
+                by classic hits and modern masterpieces, Twelve Times Modern will hit
+                the high note every time, with a familiar yet unique take on your
+                favorite music. We love to play everything - pop, R&B, rock, indie, you
+                name it!
+            </p> <!-- end of section-content -->
+            <a href="about.html" target="_blank">
+                <button class="call-to-action">More About Us!</button>
+            </a>
+        </div> <!-- end of gray-section -->
+
+        <!-- "What We Play" section with Songs and Artists List -->
+        <div class="white-section">
+            <h2 class="section-header">What We Play</h2>
+
+            <!-- Two Column List of Songs and Artists -->
+            <div class="two-lists"> 
+                <ul class="list-column">
+                    <li><strong>Songs List:</strong></li>
+                    <hr />
+                    <li>Dancing In The Dark by Bruce Springsteen</li>
+                    <li>Everytime We Touch by Cascada</li>
+                    <li>Happy by Pharrell Williams</li>
+                    <li>Heat Waves by Glass Animals</li>
+                    <li>I'm A Believer by The Monkees</li>
+                    <li>Livin' La Vida Loca by Ricky Martin</li>
+                    <li>Locked Out Of Heaven by Bruno Mars</li>
+                    <li>Mr. Brightside by The Killers </li>
+                    <li>My Type by Saint Motel</li>
+                    <li>Safe and Sound by Capital Cities</li>
+                    <li>She Looks So Perfect by 5 Seconds Of Summer</li>
+                    <li>Starships by Nicki Minaj</li>
+                    <li>Walkin' On Sunshine by Katrina and The Waves</li>
+                    <li>Wake Me Up by Avicii</li>
+                    <li>What You Know by Two Door Cinema Club</li>
+                    <li>... and more!</li>
+                </ul> <!-- end of list-column -->
+        
+                <div class="vertical-line"></div>
+                
+                <ul class="list-column">
+                    <li><strong>Artists List:</strong></li>
+                    <hr />
+                    <li>Adele</li>
+                    <li>Beastie Boys</li>
+                    <li>Frank Sinatra</li>
+                    <li>Imagine Dragons</li>
+                    <li>Katy Perry</li>
+                    <li>Lady Gaga</li>
+                    <li>Linkin Park</li>
+                    <li>Madonna</li>
+                    <li>Maroon 5</li>
+                    <li>Mumford & Sons</li>
+                    <li>Queen</li>
+                    <li>Snoop Dogg</li>
+                    <li>Stevie Wonder</li>
+                    <li>The Weeknd</li>
+                    <li>Usher</li>
+                    <li>... and more!</li>
+                </ul> <!-- end of list-column -->
+            </div> <!-- end of two-lists -->
+        </div> <!-- end of white-section -->
+
+        <div class="gray-section">
+            <h2 class="section-header">Come See Us</h2>
+
+            <p class="section-content">
+                See when we are playing in your city next!
+            </p> <!-- end of section-content -->
+            <a href="events.html" target="_blank">
+                <button class="call-to-action">Upcoming Events</button>
+            </a>
+
+            <div class="four-images">
+                <img src="images/Keyboard_Guy.jpg" alt="Perform1">
+                <img src="images/Hat_Guy.jpg" alt="Perform2">
+                <img src="images/Stadium_Red.jpg" alt="Perform3">
+                <img src="images/Guitar_Green.jpg" alt="Perform4">
+            </div> <!-- end of four-images -->
+        </div> <!-- end of gray section -->
+
+        <!-- Footer at Page Bottom -->
+        <footer class="bar footer">
+            <div class="copyright"><span class="hide-copy">Copyright </span>&copy; 2024 Twelve Times Modern.<span class="hide-copy"> All rights reserved.</span></div>
+            <ul>
+                <li><a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="https://spotify.com" target="_blank"><i class="fab fa-spotify"></i></a></li>
+            </ul>
+        </footer> <!-- end of bar footer -->
+    </body>
+</html>
