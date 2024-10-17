@@ -105,15 +105,21 @@
                 document.getElementById('add_state').addEventListener('click', function() {
                     let to_add_state = select_states.value;
 
+                    // ensure that an empty state isn't being added to the second list
                     if (to_add_state) {
 
                         // create a new option element with the correct values
                         let new_option = document.createElement('option');
                         new_option.value = to_add_state;
 
-                        // add new option element to the second list of states
                         let states_two = document.getElementById('states_two');
-                        new_option.textContent = (states_two.options.length + 1) + ". " + to_add_state;
+
+                        // use string concatenation to make it appear as a 
+                        // numbered list
+                        new_option.textContent = (states_two.options.length + 1) +
+                                                 ". " + to_add_state;
+
+                        // add new option element to second states list
                         states_two.appendChild(new_option);
 
                         // remove the state that was just added to the second list
@@ -124,10 +130,10 @@
                             }
                         }
 
-                    // ensures that select list will expand if there more than fifteen
-                    // options are added to it
+                        // ensures that select list will expand if there more than fifteen
+                        // options are added to it
                         let length = states_two.length;
-                
+
                         if (length > 15) {
                             states_two.size = length;
                         }
@@ -136,6 +142,7 @@
 
                 // add an event listener that clears the second list completely when clicked
                 document.getElementById('clear_states').addEventListener('click', function() {
+                    
                     // completely empties second list of states
                     document.getElementById('states_two').innerHTML = '';
 
