@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Metadata -->
+        <meta charset="utf-8">
+        <meta name="viewport" 
+              content="width=device-width, initial-scale=1.0" />
+        
+        <!-- Title and Link to Stylesheet -->
+        <title>Javascript 2, Problem 3:</title>
+        <link rel="stylesheet" href="style.css" />
+
+    </head>
+    <body>
+        <!-- Page Heading -->
+        <div class="top">
+            <h1>Javascript 2, Problem 3:</h1>
+        </div> <!-- end of top -->
+        
+        <!-- Form -->
+        <div class="form-box">
+            <form action="#" method="get">
+                <h2 style="text-align: center;">Form</h2>
+
+                <!-- Input Box for Name -->
+                <h3>First Name</h3>
+
+                <div class="form-line">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name">
+                </div> <!-- end of form-line -->
+
+                <!-- Three Greeting Buttons -->
+                <h3>Three Buttons</h3>
+
+                <div class="form-line">
+                    <a href="#" target="_blank">
+                        <button class="buttons" onclick="speak('Hello')">Hello</button>
+                        <button class="buttons" onclick="speak('Good Bye')">Good Bye</button>
+                        <button class="buttons" onclick="speak('Greetings')">Greetings</button>
+                    </a>
+                </div> <!-- end of form-line -->
+            </form> <!-- end of form -->
+        </div> <!-- end of form-box -->
+
+        <!-- Javascript -->
+        <script>
+            // speak takes one parameter, prefix, and uses it to greet the user 
+            // with a specific greeting and their first name
+            function speak(prefix) {
+                // get first name of user
+                let name = document.getElementById("name").value;
+        
+                alert(prefix + " " + name + ".");
+            }
+
+        </script>
+    </body>
+</html>

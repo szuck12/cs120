@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Metadata -->
+        <meta charset="utf-8">
+        <meta name="viewport" 
+              content="width=device-width, initial-scale=1.0" />
+        
+        <!-- Title and Link to Stylesheet -->
+        <title>Javascript 2, Problem 1:</title>
+        <link rel="stylesheet" href="style.css" />
+
+    </head>
+    <body>
+        <!-- Page Heading -->
+        <div class="top">
+            <h1>Javascript 2, Problem 1:</h1>
+        </div> <!-- end of top -->
+
+        <!-- Javascript -->
+        <script>
+            // Asks the user for a sentence
+            let sentence = prompt("Please enter a sentence:");
+
+            // Trim given sentence (so that it doesn't count a trailing space
+            // as an additional word) and use split method
+            const array = sentence.trim().split(" ");
+            
+            // Use length property
+            let num_words = array.length;
+
+            // Writing result to page
+            document.write("The number of words in the sentence \"" + 
+                            sentence + "\" is " + num_words + ".");
+        </script>
+    </body>
+</html>

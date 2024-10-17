@@ -1,0 +1,39 @@
+/* Formats div that holds h1 heading at the top of each page */
+.top {
+    background-color: lightgray;
+    top: 0px;
+    text-align: center;
+    border: 5px solid black;
+    margin-bottom: 10px;
+}
+
+/* Form Styling */
+.form-box {
+    width: 400px;
+    border: 3px solid black;
+    margin: 30px auto 30px auto;
+    justify-content: center;
+    padding: 25px;
+    background-color: white;
+}
+.form-line {
+    margin: 10px 20px 20px 20px;
+    display: flex;
+    justify-content: flex-start;
+}
+label {
+    margin-right: 10px;
+}
+
+/* Buttons */
+.buttons {
+    font-size: 16px;
+    border-radius: 10px;
+    padding: 10px 20px;
+    background-color: lightgray;
+    color: black;
+    border: 2px solid black;
+}
+a {
+    text-decoration: none;
+}

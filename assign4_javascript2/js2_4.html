@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Metadata -->
+        <meta charset="utf-8">
+        <meta name="viewport" 
+              content="width=device-width, initial-scale=1.0" />
+        
+        <!-- Title and Link to Stylesheet -->
+        <title>Javascript 2, Problem 4:</title>
+        <link rel="stylesheet" href="style.css" />
+        
+    </head>
+    <body>
+        <!-- Page Heading -->
+        <div class="top">
+            <h1>Javascript 2, Problem 4:</h1>
+        </div> <!-- end of top -->
+        
+        <!-- Form -->
+        <div class="form-box">
+            <form action="#" method="get">
+                <h2 style="text-align: center;">Form</h2>
+
+                <!-- Input Box for Name -->
+                <h3>First Name</h3>
+
+                <div class="form-line">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name">
+                </div> <!-- end of form-line -->
+
+                <!-- Three Greeting Buttons -->
+                <h3>Three Buttons</h3>
+
+                <div class="form-line">
+                    <a href="#" target="_blank">
+                        <button class="buttons">Hello</button>
+                        <button class="buttons">Goodbye</button>
+                        <button class="buttons">Greetings</button>
+                    </a>
+                </div> <!-- end of form-line -->
+            </form> <!-- end of form -->
+        </div> <!-- end of form-box -->
+
+        <!-- Javascript -->
+        <script>
+            // speak greets the user with a specific greeting and their first name
+            function speak() {
+                // get greeting and name of user
+                let greeting = this.innerText;
+                let name = document.getElementById("name").value;
+        
+                alert(greeting + " " + name + ".");
+            }
+
+            // use an anonymous function to add an event listener to each 
+            // button, so that speak function is called when a button is clicked
+            window.onload = function() {
+                // select all buttons
+                let all_buttons = document.querySelectorAll('.buttons');
+
+                // add an event listener to each button
+                all_buttons.forEach(function(button) {
+                    button.addEventListener('click', speak);
+                });
+            };
+
+        </script>
+    </body>
+</html>

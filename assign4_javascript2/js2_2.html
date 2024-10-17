@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Metadata -->
+        <meta charset="utf-8">
+        <meta name="viewport" 
+              content="width=device-width, initial-scale=1.0" />
+        
+        <!-- Title and Link to Stylesheet -->
+        <title>Javascript 2, Problem 2:</title>
+        <link rel="stylesheet" href="style.css" />
+
+    </head>
+    <body>
+        <!-- Page Heading -->
+        <div class="top">
+            <h1>Javascript 2, Problem 2:</h1>
+        </div> <!-- end of top -->
+
+        <!-- Javascript -->
+        <script>
+            // string of names
+            const string = "Mary, Will, James, Elizabeth, Daniel, Lisa";
+
+            // use trim and split to change to an array
+            const array = string.trim().split(", ");
+
+            // print original string of names separated by commas
+            document.write("The string of names separated by commas is " + 
+                           string + ". This string has been written as " + 
+                           "individual names in a numbered list below:")
+            
+            // use document.write and forEach to print names as a numbered list
+            document.write("<ol>");
+            array.forEach(list_val);
+            document.write("</ol>");
+
+            /*
+            list_val is responsible for taking a name in the array and adding it 
+            as a numbered bullet in the list. list_val holds one parameter 
+            (value), which is the name that is being added as a numbered bullet
+            */
+            function list_val(value) {
+                document.write("<li>");
+                document.write(value);
+                document.write("</li>");
+            }
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Metadata -->
+        <meta charset="utf-8">
+        <meta name="viewport" 
+              content="width=device-width, initial-scale=1.0" />
+        
+        <!-- Title and Link to Stylesheet -->
+        <title>Javascript 2, Problem 5:</title>
+        <link rel="stylesheet" href="style.css" />
+
+        <!-- CSS -->
+        <style>
+            /* Div styling */
+            .state_list {
+                justify-content: flex-start;
+                display: flex;
+                margin-bottom: 20px;
+            }
+            .two {
+                border: 2px solid black;
+                padding: 20px 0px;
+            }
+
+            /* Select tag styling */
+            .states, .states_two {
+                width: 100px;
+                margin-left: 10px;  
+                border: 2px solid black; 
+            }
+
+
+            /* Buttons Styling */
+            .buttons {
+                height: 50px;
+                margin-left: 20px;
+            }
+            .clear {
+                border: 2px solid black;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <!-- Page Heading -->
+        <div class="top">
+            <h1>Javascript 2, Problem 5:</h1>
+        </div> <!-- end of top -->
+
+        <h2 style="font-size:18px; margin-left:10px;">Pick a State:</h2>
+
+        <!-- first div container, with list of states and add_state button-->
+        <div class="state_list">
+            <select class="states" name="states" id="states" size="15"></select>
+            <button class="buttons" id="add_state">Add State</button>
+        </div>
+
+        <h2 style="font-size:18px; margin-left:10px;">Div with a Border:</h2>
+
+        <!-- second div container, with another list of states and a clear_states button -->
+        <div class="state_list two">
+            <select class="states_two" name="states_two" id="states_two" size="15"></select>
+            <button class="buttons" id="clear_states">Clear States</button>
+        </div>
+
+        <!-- Javascript -->
+        <script>
+            // initialize array of states
+            let states = ["Alabama", "Arizona", "California", "Colorado",
+                          "Florida", "Georgia", "Illinois", "Kentucky",
+                          "Massachusetts", "Nebraska", "New York", "Oregon",
+                          "Texas", "Vermont", "Virginia"
+                         ];
+
+            // select states and add each state as an option to our "states"
+            // select element, with the correct values
+            let select_states = document.getElementById('states');
+
+            states.forEach(function(state, index) {
+                let option = document.createElement('option');
+                option.value = state;
+                option.textContent = state;
+
+                // ensure that only the first option is selected
+                if (index == 0) {
+                    option.selected = true;
+                } else {
+                    option.selected = false;
+                }
+
+                // add option with correct value to "states" select element
+                select_states.appendChild(option);
+            });
+
+            // add an event listener so that the selected state will be added
+            // to the second list of states
+            document.getElementById('add_state').addEventListener('click', function() {
+                let to_add_state = select_states.value;
+
+                // create a new option element with the correct values
+                let new_option = document.createElement('option');
+                new_option.value = to_add_state;
+                new_option.textContent = to_add_state;
+
+                // add new option element to the second list of states
+                let states_two = document.getElementById('states_two');
+                states_two.appendChild(new_option);
+
+                // ensures that select list will expand if there more than fifteen
+                // options are added to it
+                let length = states_two.length;
+                
+                if (length > 15) {
+                    states_two.size = length;
+                }
+            });
+
+            // add an event listener that clears the second list completely when clicked
+            document.getElementById('clear_states').addEventListener('click', function() {
+                document.getElementById('states_two').innerHTML = '';
+
+                // resets state_two size to its original value
+                states_two.size = 15;
+            });
+
+        </script>
+    </body>
+</html>
