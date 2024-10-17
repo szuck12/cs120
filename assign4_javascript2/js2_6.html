@@ -110,10 +110,10 @@
                         // create a new option element with the correct values
                         let new_option = document.createElement('option');
                         new_option.value = to_add_state;
-                        new_option.textContent = to_add_state;
 
                         // add new option element to the second list of states
                         let states_two = document.getElementById('states_two');
+                        new_option.textContent = (states_two.options.length + 1) + ". " + to_add_state;
                         states_two.appendChild(new_option);
 
                         // remove the state that was just added to the second list
