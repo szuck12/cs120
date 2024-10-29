@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Metadata -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        <!-- Title, Link to Stylesheet and Adding jQuery Library -->
+        <title>JSON/jQuery, Part 2:</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+        <style>
+            /* Header Styling */
+            h2 {
+                margin-bottom: 0px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <!-- Page Heading -->
+        <div class="top">
+            <h1>JSON/jQuery, Part 2:</h1>
+        </div> <!-- end of top -->
+
+        <h2>Formatted List of Songs:</h2>
+        <hr />
+
+        <!-- Div Class to Store Formatted List of Songs -->
+        <div class="json-content" id="json-content"></div>
+
+        <!-- Javascript -->
+        <script>
+            // $.getJSON() wrapper function responsible for extracting JSON data 
+            $.getJSON('songs.json', function(data) {
+
+                // helper function that capitalizes the first letter of a string
+                // given to the function as a parameter
+                function cap_first_letter(string) {
+                    return string.charAt(0).toUpperCase() + string.slice(1);
+                }
+
+                // define a clear order of keys of the JSON data
+                const key_order = ['title', 'artist', 'genre(s)', 'year of release'];
+
+                // create an array songs_array, where each index holds data 
+                // about a song in a particular format
+                let songs_array = data.map(song => {
+
+                    // creates an array formatted_song, which holds each 
+                    // individual piece of data about a song at a particular
+                    // songs_array index, and formats it
+                    let formatted_song = key_order.map(key => {
+
+                        let value = song[key];
+                        
+                        // based on the key of the piece of song data, return
+                        // the value of the key in a specific format
+                        if (key === 'title') {
+                            return "<strong>" + value + "</strong>"
+                        } else if (key === 'artist') {
+                            return cap_first_letter(key) + ": " + value
+                        } else if (key === 'genre(s)') {
+
+                            // check if the value is an array or a single value
+                            if (Array.isArray(value)) {
+                                return cap_first_letter(key) + ": " + value.join(', ');
+                            } else {
+                                return cap_first_letter(key) + ": " + value;
+                            }
+                        } else {
+                            return "Released " + value;
+                        } 
+                    });
+
+                    // join each individual piece of data together, while adding
+                    // a line break in between
+                    return formatted_song.join('<br />');
+                });
+
+                // join the sets of data of each song together, adding two line
+                // breaks in between the data for each song
+                let songs_for_display = songs_array.join('<br /><br />')
+
+                document.getElementById('json-content').innerHTML = songs_for_display;
+            });
+        </script>
+    </body>
+</html>

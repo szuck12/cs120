@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Metadata -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        <!-- Title, Link to Stylesheet and Adding jQuery Library -->
+        <title>JSON/jQuery, Part 3:</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+        <style>
+            /* Header Styling */
+            h2 {
+                font-size: 20px;
+                margin-left: 10px;
+            }
+
+            /* Form and Form Elements Styling */
+            .genres-list {
+                justify-content: flex-start;
+                display: flex;
+                margin-bottom: 20px;
+            }
+            .genres {
+                margin: 0px 24px;
+                font-size: 20px;
+            } 
+
+            /* Button Styling */
+            .buttons {
+                font-size: 16px;
+                border-radius: 10px;
+                padding: 10px 20px;
+                background-color: lightgray;
+                color: black;
+                border: 2px solid black;
+                height: 50px;
+                margin-left: 20px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <!-- Page Heading -->
+        <div class="top">
+            <h1>JSON/jQuery, Part 3:</h1>
+        </div> <!-- end of top -->
+
+        <h2>Select a Genre:</h2>
+
+        <!-- Holds a list of genres, and a "Filter" button -->
+        <form class="genres-list">
+            <select class="genres" name="genres" id="genres"></select>
+            <button class="buttons" id="filter">Filter</button>
+        </form>
+
+        <hr />
+
+        <h2>Songs of that Genre:</h2>
+
+        <!-- Holds a list of all songs from the song list that matched
+             the selected genre, after the "Filter" button is pressed -->
+        <div class="songs-match" id="songs-match"></div>
+        
+        <!-- Javascript -->
+        <script>
+            // $.getJSON() wrapper function responsible for extracting JSON data 
+            $.getJSON('songs.json', function(data) {
+
+                // store genres in a set initially to avoid duplicates
+                let genres_set = new Set();
+
+                // add each genre not already present in genres
+                data.forEach(song => {
+                    song["genre(s)"].forEach(genre => genres_set.add(genre));
+                });
+
+                // turn genres from a set to an array
+                const genres_array = Array.from(genres_set).sort();
+
+                let $genre_dropdown = $("#genres");
+                
+                // for each genre in genres_array, add the genre as an 
+                // option in the select element
+                genres_array.forEach(genre => {
+                    $genre_dropdown.append("<option value=\"" + genre + "\">" + 
+                                           genre + "</option>");
+                });
+
+                // ensures that the first option is selected initially
+                $genre_dropdown.find("option").first().prop("selected", true);
+            });
+
+            // runs when "filter" button is clicked
+            $("#filter").on("click", function() {
+                event.preventDefault();
+
+                // $.getJSON() wrapper function responsible for extracting JSON data 
+                $.getJSON('songs.json', function(data) {
+
+                    // grab the selected genre value from the dropdown list
+                    let genre = $("#genres").val();
+
+                    // determine songs with desired genre, and then the titles
+                    // of all songs with the desired genre
+                    let songs = data.filter(song => song["genre(s)"] && 
+                                                    song["genre(s)"].includes(genre));
+                    let titles = songs.map(song => song.title);
+
+                    // create a string with each title in a list element
+                    let titles_string = titles.map(title => "<li>" + title + 
+                                                   "</li>").join("");
+
+                    $("#songs-match").html("<ol>" + titles_string + "</ol>");
+                });
+            });
+
+        </script>
+    </body>
+</html>

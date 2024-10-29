@@ -1,0 +1,8 @@
+/* Formats div that holds h1 heading at the top of each page */
+.top {
+    background-color: lightgray;
+    top: 0px;
+    text-align: center;
+    border: 5px solid black;
+    margin-bottom: 10px;
+}

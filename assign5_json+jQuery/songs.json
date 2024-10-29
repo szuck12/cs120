@@ -1,0 +1,74 @@
+[
+    {
+        "title": "Clarity",
+        "artist": "Vance Joy",
+        "genre(s)": ["Folk", "Pop"],
+        "year of release": 2022
+    },
+    {
+        "title": "Disco",
+        "artist": "Surf Curse",
+        "genre(s)": ["Indie", "Rock"],
+        "year of release": 2019
+    },
+    {
+        "title": "Everybody Wants to Rule the World",
+        "artist": "Tears for Fears",
+        "genre(s)": ["Pop", "Rock"],
+        "year of release": 1985
+    },
+    {
+        "title": "Fast Car",
+        "artist": "Tracy Chapman",
+        "genre(s)": ["Folk", "Pop"],
+        "year of release": 1988
+    },
+    {
+        "title": "Fortunate Son",
+        "artist": "Creedence Clearwater Revival",
+        "genre(s)": ["Rock"],
+        "year of release": 1969
+    },
+    {
+        "title": "Here",
+        "artist": "Alessia Cara",
+        "genre(s)": ["Pop"],
+        "year of release": 2015
+    },
+    {
+        "title": "Hey, Soul Sister",
+        "artist": "Train",
+        "genre(s)": ["Pop", "Rock"],
+        "year of release": 2009
+    },
+    {
+        "title": "Objects in the Mirror",
+        "artist": "Mac Miller",
+        "genre(s)": ["Rap"],
+        "year of release": 2013
+    },
+    {
+        "title": "Saturday Sun",
+        "artist": "Vance Joy",
+        "genre(s)": ["Indie"],
+        "year of release": 2018
+    },
+    {
+        "title": "Stay",
+        "artist": "Mac Miller",
+        "genre(s)": ["Rap"],
+        "year of release": 2016
+    },
+    {
+        "title": "The Spins",
+        "artist": "Mac Miller",
+        "genre(s)": ["Rap"],
+        "year of release": 2010
+    },
+    {
+        "title": "What You Know",
+        "artist": "Two Door Cinema Club",
+        "genre(s)": ["Electronic"],
+        "year of release": 2011
+    }     
+]
