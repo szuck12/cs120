@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Metadata -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        <!-- Title, Stylesheet and jQuery -->
+        <title>CS120: API Assignment</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+    </head>
+
+    <body>
+        <!-- Page Heading -->
+        <div class="top">
+            <h1>CS120: API Assignment</h1>
+        </div> <!-- end of top -->
+
+
+        <h2>Intel Daily Market Capitalization, October 2024</h2>
+        <hr />
+
+        <!-- Quick Note About Data -->
+        <p class="note">
+            * Important Note: Intel's Market Capitalization is only listed
+            for days in October 2024 where the stock market was open. On days
+            where the stock market was not open, no Market Capitalization for 
+            Intel is listed.
+        </p>
+
+        <!-- Will Hold Intel Market Capitalization Historical Data -->
+        <div class="h-data" id="h-data"></div>
+
+        <script>
+            // Use ajax GET method to retrieve historical market capitalization
+            // data of Intel in JSON format
+            $.ajax({
+                url: "https://financialmodelingprep.com/api/v3/historical-market" +
+                     "-capitalization/INTC?limit=100&from=2024-10-01&to=2024-10-31" +
+                     "&apikey=f7oxlrkdH9Q65n5U8yIPMFN5s883rx7q",
+                method: "GET",
+                // run if able to grab data successfully
+                success: function(data) {
+
+                    // iterate through JSON objects end to beginning
+                    data.reverse().forEach(object => {
+
+                        // get and format market capitalization number
+                        let market_cap = object.marketCap;
+                        market_cap = format_market_cap(market_cap);
+
+                        // get and format date
+                        let date = object.date;
+                        date = format_date(date);
+
+                        // add date and market capitalization in specific 
+                        // format to div h-data
+                        document.getElementById("h-data").innerHTML += "<p>On <strong>" + date + 
+                                                                       "</strong>, Intel's Market " + 
+                                                                       "Capitalization was <strong>$" + 
+                                                                        market_cap + "</strong>.";
+                    });
+                },
+                // if there is an issue with grabbing data, let user know
+                error: function() {
+                    document.getElementById("h-data").innerHTML = "ERROR: There was an error " + 
+                                                                  "with grabbing the necessary data. " + 
+                                                                  "Please try again later."
+                }
+            });
+
+            // responsible for formatting date in specific way (ex: changes
+            // date formatting from "2024-10-01" to "October 1st, 2024")
+            function format_date(date) {
+
+                const months = ["January", "February", "March", "April", "May",
+                                "June", "July", "August", "September", "October",
+                                "November", "December"];
+                
+                const suffixes = ["th", "st", "nd", "rd"];
+
+                // get year, month and day
+                const [year, month, day] = date.split("-").map(Number);
+
+                ones_place = day % 10;
+
+                // use ones place of day to help determine suffix necessary 
+                // based on the given day
+                const suffix = (day > 10 && day < 20) || ones_place > 3 || ones_place < 1 ? "th" : suffixes[ones_place];
+
+                // formatted_date holds the date in the desired format
+                const formatted_date = months[month - 1] + " " + day + suffix + ", " + year;
+
+                return formatted_date;
+            }
+
+            // responsible for changing how the market capitalization of 
+            // Intel is written (ex: changes "6720000000" to 6.72 Billion )
+            function format_market_cap(market_cap) {
+
+                if (market_cap >= 1_000_000_000) {
+                    const num_billions = (market_cap / 1_000_000_000).toFixed(2);
+                    return num_billions + " Billion";
+                } else {
+                    // if market capitalization is less than a billion, just add necessary commas
+                    return market_cap.toLocaleString();
+                }
+            }
+
+        </script>
+    </body>
+</html>
