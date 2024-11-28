@@ -28,7 +28,7 @@
             for days in October 2024 where the stock market was open. On days
             where the stock market was not open, no Market Capitalization for 
             Intel is listed.
-        </p>
+        </p> <!-- end of note -->
 
         <!-- Will Hold Intel Market Capitalization Historical Data -->
         <div class="h-data" id="h-data"></div>
@@ -44,10 +44,10 @@
                 // run if able to grab data successfully
                 success: function(data) {
 
-                    // iterate through JSON objects end to beginning
+                    // iterate through JSON array of objects end to beginning
                     data.reverse().forEach(object => {
 
-                        // get and format market capitalization number
+                        // get and format market capitalization
                         let market_cap = object.marketCap;
                         market_cap = format_market_cap(market_cap);
 
@@ -81,7 +81,7 @@
                 
                 const suffixes = ["th", "st", "nd", "rd"];
 
-                // get year, month and day
+                // split to get year, month and day
                 const [year, month, day] = date.split("-").map(Number);
 
                 ones_place = day % 10;
@@ -97,7 +97,7 @@
             }
 
             // responsible for changing how the market capitalization of 
-            // Intel is written (ex: changes "6720000000" to 6.72 Billion )
+            // Intel is written (ex: changes "6720000000" to 6.72 Billion)
             function format_market_cap(market_cap) {
 
                 if (market_cap >= 1_000_000_000) {
