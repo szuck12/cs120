@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Metadata -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        <!-- Title, Stylesheet and jQuery -->
+        <title>Project 2, Sam's Wordle:</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" 
+              href="https://fonts.googleapis.com/css?family=Vollkorn|Volkhov|Manuele" />
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+    </head>
+
+    <body>
+        <!-- Page Heading -->
+        <div class="nav">
+            <h1 class="header">Sam's Wordle</h1>
+        </div> <!-- end of nav -->
+
+        <!-- Wordle Board -->
+        <div class="white-section">
+            <div class="board-grid" id="board-grid"></div>
+        </div> <!-- end of white-section -->
+
+        <!-- Input Box to Enter Guess -->
+        <div class="blue-section">
+            <form class="box-whole" id="box-whole">
+                <div class="box-line">
+                    <label for="name">Enter a 5 letter guess:</label>
+                    <input type="text" id="guess" name="guess">
+                </div> <!-- end of box-line -->
+    
+                <div class="box-line">
+                    <button class="buttons" id="submit-button" type="click">Submit Guess</button>
+                    <button class="buttons new-game" id="new-game" type="click">New Game</button>
+                </div> <!-- end of box-line -->
+    
+                <!-- Span for Error Message (if guess isn't five characters, 
+                     or has non-alphabetical characters) -->
+                <div class="box-line">
+                    <span class="error-message" id="error-message"></span>
+                </div> <!-- end of box-line -->
+            </form> <!-- end of box-whole -->
+        </div> <!-- end of blue-section -->
+
+        <!-- Used Letters Board -->
+        <div class="white-section">
+            <div class="all-letters" id="all-letters">
+                <div class="letters-row" id="letter-row-1"></div>
+                <div class="letters-row" id="letter-row-2"></div>
+                <div class="letters-row" id="letter-row-3"></div>
+            </div> <!-- end of all-letters -->
+        </div> <!-- end of white-section -->
+
+        <!-- Page Footer -->
+        <div class="footer">
+            <p class="left-text">&copy 2024 Sam's Wordle Company</p>
+            <p class="center-text">
+                <span class="wide">Have a wonderful day, and happy Wordle-ing! &#128522</span>
+                <span class="thin">Happy Wordle-ing! &#128522</span>
+            </p> <!-- end of center-text -->
+        </div> <!-- end of footer -->
+
+        <!-- Adding Functions from Javascript Files -->
+        <script src="mis.js"></script>
+        <script src="setup.js"></script>
+        <script src="cookies.js"></script>
+        <script src="guess.js"></script>
+
+        <script>
+            /*
+                initialization of guess_object, an object that will hold
+                important data values that will help us compare a guess to
+                the correct 5-letter word:
+
+                answer: holds the 5-letter word that the user is trying 
+                        to guess (string)
+                guess: holds the most recent 5-letter guess the user has made (string)
+                guess_count: holds the number of guesses the user has made
+                             already, or "N" if the user failed to guess the 
+                             word in six guesses or less (int or "N")
+                incorrect_letters: for the letters in guess, holds each letter
+                                   that has not been correctly guessed, where
+                                   each letter is an index in the
+                                   incorrect_letters array (array of letters)
+                missed_letters: for the letters in answer, holds each letter
+                                that has not been correctly guessed in the most
+                                recent guess, where each letter is an index 
+                                in the missed_letters array (array of letters)
+                letters_result: holds key-value pairs of letters and the
+                                corresponding letter that they should be colored.
+                                If a letter does not appear in letters_result,
+                                this mean that its color should not be changed
+                                from the original light gray color (associative array)
+                has_reset: holds whether the "new game" button has been clicked
+                           on the current browser session (bool)
+                        
+            */
+            let guess_object = {
+                answer: "",
+                guess: "",
+                guess_count: 0,
+                incorrect_letters: new Array(5).fill(""),
+                missed_letters: new Array(5).fill(""),
+                letters_result: new Object(),
+                has_reset: false
+            }
+
+            main();
+
+            // wrapper function main() is responsible for running all necessary
+            // operations once a browser session has begun
+            async function main() {
+
+                // create Wordle board and used letter board if they are not 
+                // created already
+                if (!guess_object.has_reset) {
+                    create_board();
+                    create_letter_options();
+                }
+
+                try {
+                    // get random 5-letter word through an API call to a free word API
+                    let answer = await get_random_word();
+
+                    guess_object.answer = answer.toUpperCase();
+                    console.log("Success: Retrieved 5-letter Wordle word of " + 
+                                guess_object.answer + ".");
+
+                } catch (error) {
+                    // if issue with running API occurs, display error message
+                    console.error("Error occurred in retrieving 5-letter word: ", error);
+                }
+            }
+
+            // event listener that activates when "submit guess" button is clicked
+            document.getElementById('submit-button').addEventListener('click', function() {
+                event.preventDefault();
+
+                // set guess, and change all letters in guess to uppercase
+                let guess = document.getElementById('guess').value;
+                guess = guess.toUpperCase();
+
+                let regex = /^[A-Z]+$/i;
+
+                /*
+                    if guess is not five letters, or has invalid characters, then
+                    display an error message in red. Otherwise, accept users
+                    five letter guess
+                */
+                if (guess.length === 5 && regex.test(guess)) {
+
+                    // helper function that removes error message
+                    remove_error();
+
+                    guess_object.guess_count += 1;
+                    guess_object.guess = guess;
+
+                    console.log("Success: Retrieved guess of " + guess_object.guess + ".");
+
+                    // begin process to display guess correctly on screen
+                    display_guess();
+
+                    let input_box = document.getElementById('guess');
+
+                    // allows for text in input box to be highlighted after a guess is made
+                    input_box.focus();
+                    input_box.select();
+
+                } else {
+                    error_message(guess);
+                }
+            });
+
+            // event listener that activates when "new game" button is clicked 
+            document.getElementById('new-game').addEventListener('click', function() {
+                event.preventDefault();
+
+                // reset Wordle board and used letters board
+                reset_board();
+
+                // hide new game button
+                document.getElementById("new-game").style.visibility = "hidden";
+
+                // empties guess input box
+                document.getElementById("guess").value = '';
+
+                // reinitializes guess_object for new game
+                reset_guess_object();
+
+                console.log("Success: Everything has been reset, ready for another " + 
+                            "game to be played.")
+
+                // begin a new game
+                main();
+            });
+
+        </script> 
+    </body>
+</html>
