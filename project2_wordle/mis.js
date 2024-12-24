@@ -36,7 +36,7 @@ function error_message(guess) {
                                 "either not 5 letters long, or contains " +
                                 "non-alphabetical characters. Please give " +
                                 "a 5 letter word.";
-    error_message.style.color = "red";
+    error_message.style.color = "FF0000";
 
 }
 
