@@ -32,7 +32,7 @@ function error_message(guess) {
 
     // fill error_message span with corresponding text, and color
     // text red
-    error_message.textContent = "Your guess of \"" + guess + "\" is " +
+    error_message.textContent = "Your guess of \"" + guess.toLowerCase() + "\" is " +
                                 "either not 5 letters long, or contains " +
                                 "non-alphabetical characters. Please give " +
                                 "a 5 letter word.";
