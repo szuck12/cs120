@@ -30,6 +30,7 @@ function error_message(guess) {
 
     let error_message = document.getElementById('error-message');
 
+    // change guess to all lowercase characters
     let lowercase_guess = guess.toLowerCase();
 
     // fill error_message span with corresponding text, and color
