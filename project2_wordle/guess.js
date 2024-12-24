@@ -246,7 +246,7 @@ function reset_board() {
     for (let row = 0; row <= 5; row++) {
         for (let column = 0; column <= 4; column++) {
             let cell = document.getElementById(row + "-" + column);
-            cell.style.backgroundColor = "white";
+            cell.style.backgroundColor = "#FFFFFF";
             cell.style.borderColor = "#D3D3D3";
             cell.textContent = "";
         }
