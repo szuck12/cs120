@@ -1,0 +1,88 @@
+/* Body */
+html, body {
+    margin: 37.5px 0px 0px 0px;
+    padding: 0px;
+}
+
+/* Bar Styling (Applies to Nav and Footer) */
+.bar {
+    list-style-type: none;
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    align-items: center; 
+    justify-content: space-between;
+    z-index: 1;
+    background-color: #006400;
+}
+.bar li {
+    display: inline;
+    text-decoration: none;
+}
+.bar a {
+    color: #000000;
+}
+a {
+    text-decoration: none;
+}
+a:visited {
+    color: #000000;
+}
+
+/* Nav Styling */
+.nav {
+    height: 75px;
+    top: 0px;
+    position: fixed;
+}
+.nav li {
+    margin: 0px 18px;
+    font-size: 20px;
+    font-family: "Merriweather", "Noto Serif", "Faustina", "Yrsa", serif;
+}
+.business-name {
+    font-family: "MonteCarlo", "Tangerine", "Rochester", "Parisienne", cursive; 
+    color: #000000;
+    margin-left: 20px;
+    font-size: 50px;
+}
+
+/* Footer Styling */
+.footer {
+    height: 40px;
+    bottom: 0px;
+}
+.footer li {
+    margin-left: 15px;
+}
+.footer li:last-child {
+    margin-right: 40px;
+}
+.copyright {
+    color: #000000;
+    margin-left: 20px;
+    font-size: 16px;
+    font-family: "Merriweather", "Noto Serif", "Faustina", "Yrsa", serif;
+}
+
+/* Content Sections */
+.white-section, .gray-section {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.gray-section {
+    background-color: #CCCCCC;
+}
+.blue-section {
+    background-color: #C9DFE5;
+}
+.section-header {
+    text-align: center;
+}
+.section-content {
+    text-align: center;
+    width: 75%;
+    margin: 10px auto 20px auto;
+    max-width: 1000px;
+    line-height: 1.5;
+}
